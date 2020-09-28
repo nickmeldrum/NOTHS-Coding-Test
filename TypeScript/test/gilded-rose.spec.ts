@@ -2,11 +2,8 @@ import { expect } from 'chai';
 import { Item, GildedRose } from '../app/gilded-rose';
 
 describe('Gilded Rose', function () {
-
-    it('should foo', function() {
-        const gildedRose = new GildedRose([ new Item('foo', 0, 0) ]);
-        const items = gildedRose.updateQuality();
-        expect(items[0].name).to.equal('fixme');
+    it('should not have negative sellin', function() {
+        const gildedRose = new GildedRose([ new Item('foo', -1, 0) ]);
+        expect(() => gildedRose.updateQuality()).to.throw();
     });
-
 });

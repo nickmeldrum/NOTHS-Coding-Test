@@ -6,7 +6,8 @@
     "precompile": "rimraf app/**/*.js test/**/*.js",
     "compile": "tsc",
     "pretest": "rimraf app/**/*.js test/**/*.js",
-    "test": "nyc mocha"
+    "test": "nyc mocha",
+    "watch": "nodemon -e .ts -x 'yarn test'"
   },
   "license": "MIT",
   "private": true,
@@ -16,6 +17,7 @@
     "@types/node": "~7.0.18",
     "chai": "~3.5.0",
     "mocha": "~3.2.0",
+    "nodemon": "^2.0.4",
     "nyc": "~11.0.3",
     "rimraf": "~2.5.2",
     "source-map-support": "0.5.9",
@@ -39,4 +41,3 @@
     ]
   }
 }
-
