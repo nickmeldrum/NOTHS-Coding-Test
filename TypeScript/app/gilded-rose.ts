@@ -22,6 +22,12 @@ export class GildedRose {
       if (this.items[i].sellIn < 0) {
         throw new Error('sellIn must not be negative')
       }
+      if (this.items[i].quality < 0) {
+        throw new Error('sellIn must not be negative')
+      }
+      if (this.items[i].name === '') {
+        throw new Error('must have a name')
+      }
       if (
         this.items[i].name != 'Aged Brie' &&
         this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert'
