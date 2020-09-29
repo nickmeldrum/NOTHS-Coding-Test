@@ -3,6 +3,11 @@ import { QualityTestData, testUpdateQuality } from './test/helper'
 
 describe('Gilded Rose', () => {
   describe('legendary item rules', () => {
+    test('should not have negative quality', () => {
+      const gildedRose = new GildedRose([new Item('Sulfuras, Hand of Ragnaros', 0, -1)])
+      expect(() => gildedRose.updateQuality()).toThrow()
+    })
+
     test('should throw if quality is less than 80', () => {
       const gildedRose = new GildedRose([new Item('Sulfuras, Hand of Ragnaros', 5, 45)])
       expect(() => gildedRose.updateQuality()).toThrow()
