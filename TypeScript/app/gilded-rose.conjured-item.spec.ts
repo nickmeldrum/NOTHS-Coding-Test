@@ -4,6 +4,12 @@ describe('Gilded Rose', () => {
   describe('conjured item rules', () => {
     const testData: QualityTestData[] = [
       {
+        description: 'should not drop quality more than zero',
+        sellIn: 3,
+        quality: 0,
+        expectedQuality: 0,
+      },
+      {
         description: 'should decrease by 2 a day if sellIn is positive',
         sellIn: 20,
         quality: 50,
