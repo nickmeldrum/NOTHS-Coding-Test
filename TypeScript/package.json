@@ -3,41 +3,89 @@
   "version": "1.0.0",
   "description": "Gilded Rose kata in TypeScript",
   "scripts": {
-    "precompile": "rimraf app/**/*.js test/**/*.js",
+    "precompile": "rimraf dist",
     "compile": "tsc",
-    "pretest": "rimraf app/**/*.js test/**/*.js",
-    "test": "nyc mocha",
-    "watch": "nodemon -e .ts -x 'yarn test'"
+    "lint": "eslint app/**/* --max-warnings 0 --fix",
+    "pretest": "yarn lint",
+    "test": "jest --coverage",
+    "watch": "jest --watch"
   },
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "@types/chai": "~3.5.2",
-    "@types/mocha": "~2.2.41",
-    "@types/node": "~7.0.18",
-    "chai": "~3.5.0",
-    "mocha": "~3.2.0",
-    "nodemon": "^2.0.4",
-    "nyc": "~11.0.3",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.2",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
     "rimraf": "~2.5.2",
     "source-map-support": "0.5.9",
+    "ts-jest": "^26.4.0",
     "ts-node": "~3.1.0",
-    "typescript": "~3.0.3"
+    "typescript": "^4.0.3"
   },
-  "nyc": {
-    "extension": [
-      ".ts"
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    },
+    "roots": [
+      "<rootDir>/app"
     ],
-    "exclude": [
-      "**/*.d.ts",
-      "test/**"
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "app/**/*.ts"
     ],
-    "require": [
-      "ts-node/register"
+    "coverageDirectory": "coverage"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "ignorePatterns": ["test/golden-master-test-test.ts"],
+    "parserOptions": {
+      "project": "./tsconfig.eslint.json"
+    },
+    "plugins": [
+      "@typescript-eslint"
     ],
-    "reporter": [
-      "html",
-      "text"
-    ]
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "indent": "off",
+      "@typescript-eslint/indent": [
+        "error",
+        2
+      ]
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "useTabs": false,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "trailingComma": "all",
+    "printWidth": 100
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

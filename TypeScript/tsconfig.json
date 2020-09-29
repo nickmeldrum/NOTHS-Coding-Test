@@ -1,12 +1,13 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es5",
-        "strict": true,
-        "noImplicitAny": false,
-        "sourceMap": false
-    },
-    "exclude": [
-        "node_modules"
-    ]
+  "compilerOptions": {
+    "types": ["node", "jest"],
+    "module": "commonjs",
+    "target": "es5",
+    "strict": true,
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "outDir": "dist/"
+  },
+  "include": ["app/**/*", "test/**/*"],
+  "exclude": ["node_modules", "app/**/*.spec.ts"]
 }

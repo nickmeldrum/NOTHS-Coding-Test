@@ -2,9 +2,6 @@
 .idea
 node_modules
 typings
-app/**/*.js
-app/**/*.js.map
-test/**/*.js
-test/**/*.js.map
+dist/
 coverage
-.nyc_output
+yarn-error.log
