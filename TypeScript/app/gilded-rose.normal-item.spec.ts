@@ -1,53 +1,55 @@
-import { Item, GildedRose } from '../app/gilded-rose'
+import {
+  QualityTestData,
+  SellInTestData,
+  testSellInUpdateQuality,
+  testUpdateQuality,
+} from './test/helper'
 
 describe('Gilded Rose', () => {
   describe('normal item rules', () => {
-    test('should decrease quality by 1 if sellIn is more than 0', () => {
-      const gildedRose = new GildedRose([new Item('normal item', 2, 5)])
+    const testData: QualityTestData[] = [
+      {
+        description: 'should decrease quality by 1 if sellIn is more than 0',
+        sellIn: 2,
+        quality: 5,
+        expectedQuality: 4,
+      },
+      {
+        description: 'should decrease quality by 2 if sellIn is 0',
+        sellIn: 0,
+        quality: 5,
+        expectedQuality: 3,
+      },
+      {
+        description: 'should decrease quality by 2 if sellIn is negative',
+        sellIn: -5,
+        quality: 43,
+        expectedQuality: 41,
+      },
+    ]
 
-      const item = gildedRose.updateQuality()[0]
+    const sellInTestData: SellInTestData[] = [
+      {
+        description: 'should decrease sellin by 1 if sellIn is more than 0',
+        sellIn: 2,
+        quality: 5,
+        expectedSellIn: 1,
+      },
+      {
+        description: 'should decrease sellin by 1 if sellIn is 0',
+        sellIn: 0,
+        quality: 5,
+        expectedSellIn: -1,
+      },
+      {
+        description: 'should decrease sellin by 1 if sellIn is negative',
+        sellIn: -5,
+        quality: 5,
+        expectedSellIn: -6,
+      },
+    ]
 
-      expect(item.quality).toEqual(4)
-    })
-
-    test('should decrease quality by 2 if sellIn is 0', () => {
-      const gildedRose = new GildedRose([new Item('normal item', 0, 5)])
-
-      const item = gildedRose.updateQuality()[0]
-
-      expect(item.quality).toEqual(3)
-    })
-
-    test('should decrease quality by 2 if sellIn is negative', () => {
-      const gildedRose = new GildedRose([new Item('normal item', -5, 43)])
-
-      const item = gildedRose.updateQuality()[0]
-
-      expect(item.quality).toEqual(41)
-    })
-
-    test('should decrease sellin by 1 if sellIn is more than 0', () => {
-      const gildedRose = new GildedRose([new Item('normal item', 2, 5)])
-
-      const item = gildedRose.updateQuality()[0]
-
-      expect(item.sellIn).toEqual(1)
-    })
-
-    test('should decrease sellin by 1 if sellIn is 0', () => {
-      const gildedRose = new GildedRose([new Item('normal item', 0, 5)])
-
-      const item = gildedRose.updateQuality()[0]
-
-      expect(item.sellIn).toEqual(-1)
-    })
-
-    test('should decrease sellin by 1 if sellIn is negative', () => {
-      const gildedRose = new GildedRose([new Item('normal item', -5, 5)])
-
-      const item = gildedRose.updateQuality()[0]
-
-      expect(item.sellIn).toEqual(-6)
-    })
+    testUpdateQuality('some normal item', testData)
+    testSellInUpdateQuality('some normal item', sellInTestData)
   })
 })

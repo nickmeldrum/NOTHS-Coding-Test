@@ -1,4 +1,5 @@
-import { Item, GildedRose } from '../app/gilded-rose'
+import { Item, GildedRose } from './gilded-rose'
+import { QualityTestData, testUpdateQuality } from './test/helper'
 
 describe('Gilded Rose', () => {
   describe('legendary item rules', () => {
@@ -12,37 +13,27 @@ describe('Gilded Rose', () => {
       expect(() => gildedRose.updateQuality()).toThrow()
     })
 
-    const testData = [
+    const testData: QualityTestData[] = [
       {
         description: 'should keep quality at 80 if sellIn is more than 0',
         sellIn: 20,
         quality: 80,
-        expected: 80,
+        expectedQuality: 80,
       },
       {
         description: 'should keep quality at 80 if sellIn is 0',
         sellIn: 0,
         quality: 80,
-        expected: 80,
+        expectedQuality: 80,
       },
       {
         description: 'should keep quality at 80 if sellIn is negative',
         sellIn: -10,
         quality: 80,
-        expected: 80,
+        expectedQuality: 80,
       },
     ]
 
-    testData.forEach(data => {
-      test(data.description, () => {
-        const gildedRose = new GildedRose([
-          new Item('Sulfuras, Hand of Ragnaros', data.sellIn, data.quality),
-        ])
-
-        const item = gildedRose.updateQuality()[0]
-
-        expect(item.quality).toEqual(data.expected)
-      })
-    })
+    testUpdateQuality('Sulfuras, Hand of Ragnaros', testData)
   })
 })
