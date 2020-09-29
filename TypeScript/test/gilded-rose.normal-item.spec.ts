@@ -3,7 +3,7 @@ import {
   SellInTestData,
   testSellInUpdateQuality,
   testUpdateQuality,
-} from './test/helper'
+} from './helper'
 
 describe('Gilded Rose', () => {
   describe('normal item rules', () => {

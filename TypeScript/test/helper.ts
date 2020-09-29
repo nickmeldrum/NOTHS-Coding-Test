@@ -1,5 +1,5 @@
-import { Item } from '../items'
-import { GildedRose } from '../gilded-rose'
+import { Item } from '../app/items'
+import { GildedRose } from '../app/gilded-rose'
 
 interface TestData {
   description: string

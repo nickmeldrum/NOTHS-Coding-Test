@@ -1,4 +1,4 @@
-import { QualityTestData, testUpdateQuality } from './test/helper'
+import { QualityTestData, testUpdateQuality } from './helper'
 
 describe('Gilded Rose', () => {
   describe('conjured item rules', () => {

@@ -1,6 +1,6 @@
-import { GildedRose } from './gilded-rose'
-import { Item } from './items'
-import { QualityTestData, testUpdateQuality } from './test/helper'
+import { GildedRose } from '../app/gilded-rose'
+import { Item } from '../app/items'
+import { QualityTestData, testUpdateQuality } from './helper'
 
 describe('Gilded Rose', () => {
   describe('legendary item rules', () => {

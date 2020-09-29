@@ -1,5 +1,5 @@
-import { GildedRose } from './gilded-rose'
-import { Item } from './items'
+import { GildedRose } from '../app/gilded-rose'
+import { Item } from '../app/items'
 
 describe('Gilded Rose', () => {
   describe('input arguments', () => {

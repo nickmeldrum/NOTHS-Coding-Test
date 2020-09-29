@@ -8,6 +8,6 @@
     "sourceMap": false,
     "outDir": "dist/"
   },
-  "include": ["app/**/*", "test/**/*"],
-  "exclude": ["node_modules", "app/**/*.spec.ts"]
+  "include": ["app/**/*", "test/golden-master-test-test.ts"],
+  "exclude": ["node_modules"]
 }

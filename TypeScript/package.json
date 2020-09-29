@@ -5,7 +5,7 @@
   "scripts": {
     "precompile": "rimraf dist",
     "compile": "tsc",
-    "lint": "eslint app/**/* --max-warnings 0 --fix",
+    "lint": "eslint app/**/* test/**/* --max-warnings 0 --fix",
     "pretest": "yarn lint",
     "test": "jest --coverage",
     "watch": "jest --watch",
@@ -42,10 +42,11 @@
       }
     },
     "roots": [
-      "<rootDir>/app"
+      "<rootDir>"
     ],
     "preset": "ts-jest",
     "testEnvironment": "node",
+    "testMatch": ["**/test/**/*.spec.ts?(x)"],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
