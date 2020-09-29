@@ -1,7 +1,13 @@
-import { Item, GildedRose } from '../app/gilded-rose'
+import { GildedRose } from './gilded-rose'
+import { Item } from './items'
 
 describe('Gilded Rose', () => {
   describe('input arguments', () => {
+    test('should not throw when no items passed in', () => {
+      const gildedRose = new GildedRose()
+      expect(() => gildedRose.updateQuality()).not.toThrow()
+    })
+
     test('should allow negative sellin', () => {
       const gildedRose = new GildedRose([new Item('foo', -5, 0)])
       expect(() => gildedRose.updateQuality()).not.toThrow()

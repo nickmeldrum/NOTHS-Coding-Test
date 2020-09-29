@@ -1,0 +1,6 @@
+export * from './Item'
+export * from './NormalItem'
+export * from './AgedItem'
+export * from './BackstagePassItem'
+export * from './LegendaryItem'
+export * from './item-factory'
