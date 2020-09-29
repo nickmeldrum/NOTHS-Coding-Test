@@ -41,5 +41,13 @@ describe('Gilded Rose', () => {
 
       expect(item.sellIn).toEqual(-1)
     })
+
+    test('should decrease sellin by 1 if sellIn is negative', () => {
+      const gildedRose = new GildedRose([new Item('normal item', -5, 5)])
+
+      const item = gildedRose.updateQuality()[0]
+
+      expect(item.sellIn).toEqual(-6)
+    })
   })
 })

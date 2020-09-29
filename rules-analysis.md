@@ -11,8 +11,15 @@
 
 ## custom item rules
 
- * 'sulfuruas' never decreases quality (also never loses sellin value?)
- * 'Aged Brie' increases by 1 instead of decreasing until it hits 50
+ item categories:
+
+  * normal
+  * aged
+  * legendary
+  * backstage passes
+  * conjured
+
+ * 'sulfuruas' never decreases quality (also never loses sellin value? - according to code sellin does still increase?)
  * 'backstage passes' increases by 1 until sellin <= 10, then increases by 2 until sellin <= 5, then increases by 3, until Sellin = 0, quality = 0
  * 'conjured' decrease at 2 a day until sellin = 0, then decrease at 4 a day. - (confirm this as interpretation of "twice as fast as normal items")
 
@@ -23,3 +30,5 @@
  * confirm interpretation of twice as fast as normal items
  * confirm inferrence from code that by default quality decreases by 1 each day
  * how we know if item is legendary? just Sulfuras?
+ * does "never have to be sold" for sulfuras mean that sellin doesn't decrease?
+ * analysis is non specific about whether aged brie changes quality in the same way as tickets - making the assumption (based on existing code analysis) that aged brie quality just increases in 1 a day until it hits 50 (but implementation actually increases it by 2 if sellIn is 0 or below - which is very strange IRL - keep to existing implementation but query this!)
