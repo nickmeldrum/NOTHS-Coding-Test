@@ -19,11 +19,15 @@ export class GildedRose {
 
   updateQuality(): Array<Item> {
     for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].sellIn < 0) {
-        throw new Error('sellIn must not be negative')
+      const item: Item = this.items[i]
+      if (item.quality < 0) {
+        throw new Error('quality must not be negative')
       }
-      if (this.items[i].quality < 0) {
-        throw new Error('sellIn must not be negative')
+      if (item.quality > 50 && !item.name.startsWith('Sulfuras')) {
+        throw new Error('quality for normal items must not be more than 50')
+      }
+      if (item.quality > 80 && item.name.startsWith('Sulfuras')) {
+        throw new Error('quality for legendary items must not be more than 80')
       }
       if (this.items[i].name === '') {
         throw new Error('must have a name')

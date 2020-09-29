@@ -3,11 +3,10 @@
 ## base rules: 
 
  * max quality value = 50 (except sulfuras (legendary) = 80)
-min quality value = 0
+ * min quality value = 0
  * quality decreases at a rate: 1 a day? <- assumption from code not requirements
- * quality decreases at a rate: 2 a day once sellin value = 0 (inferred)
-(evaluate quality before sellin)
- * sellin min value = 0
+ * quality decreases at a rate: 2 a day once sellin value = 0 (inferred) (evaluate quality before sellin)
+ * sellin can go negative (assumed)
  * sellin decreases at a rate of 1 a day
 
 ## custom item rules
@@ -23,3 +22,4 @@ min quality value = 0
  * how do we know if an item is conjured?
  * confirm interpretation of twice as fast as normal items
  * confirm inferrence from code that by default quality decreases by 1 each day
+ * how we know if item is legendary? just Sulfuras?
