@@ -1,5 +1,9 @@
 # Gilded Rose
 
+## Installation notes
+
+This has been implemented in TypeScript. See the `README.md` in the TypeScript directory for notes on installation and running.
+
 ### Guidance Notes
 
 - Clone or fork this repo, and do this exercise in any of the available languages that you are most comfortable using.
