@@ -8,10 +8,3 @@
  4. refactor to improve quality of existing code - it's too coupled atm
     1. possible different implementations? obvious 1st step is inheritance - different types of Item that implement their own version of updateQuantity. This means we decouple the rules, but inheritance comes with it's own problematic coupling... shoudl be minimal in this case... but consider "prefering composition" or a more functional approach before refactoring...
  5. once refactor implement new conjured rules with appropriate testing
-
-
-## issues:
-
-### setup:
-
- * compiling spec files because included in tsconfig.json (which tsc uses to choose what to compile). It's included in tsconfig.json because that's what eslint's "parser": "@typescript-eslint/parser" is using to choose what to lint...
