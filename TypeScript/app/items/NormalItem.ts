@@ -23,7 +23,7 @@ export class NormalItem {
     this.item.quality = value
   }
 
-  validate(): void {
+  protected validate(): void {
     this.validateQuality()
     this.validateName()
   }
@@ -43,12 +43,18 @@ export class NormalItem {
     }
   }
 
-  updateQuality(): void {
+  update(): void {
+    this.validate()
+    this.updateQuality()
+    this.updateSellIn()
+  }
+
+  protected updateQuality(): void {
     const factor = this.quality <= 0 ? 0 : this.sellIn <= 0 ? 2 : 1
     this.quality -= factor
   }
 
-  updateSellIn(): void {
+  protected updateSellIn(): void {
     this.sellIn -= 1
   }
 }
