@@ -46,7 +46,9 @@
     ],
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "testMatch": ["**/test/**/*.spec.ts?(x)"],
+    "testMatch": [
+      "**/test/**/*.spec.ts?(x)"
+    ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
@@ -57,7 +59,9 @@
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
-    "ignorePatterns": ["test/golden-master-test-test.ts"],
+    "ignorePatterns": [
+      "test/golden-master-test-test.ts"
+    ],
     "parserOptions": {
       "project": "./tsconfig.eslint.json"
     },
