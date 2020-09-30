@@ -15,6 +15,10 @@
  * To run the original test script: `npm run app`. This will recompile from source, then execute the test script in node.
  * To run the tests (with coverage): `npm test`. (This will also run the linter.)
 
+## CI (deployment)
+
+ * The npm task: `npm test` will run the linter, code coverage and unit tests. If any of these fails with lint warning, low code coverage or unit test failures the process with exit with a 1 as an exit code. This will break the build, and is therefore all we should need as a gatekeeper task in the build.
+
 ## Development
 
 We recommend that while developing we run the tests in 'watch' mode continuously using `npm run watch`.
