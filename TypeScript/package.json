@@ -6,7 +6,7 @@
     "precompile": "rimraf dist",
     "compile": "tsc",
     "lint": "eslint app/**/* test/**/* --max-warnings 0 --fix",
-    "pretest": "yarn lint",
+    "pretest": "npm run lint",
     "test": "jest --coverage",
     "watch": "jest --watch",
     "preapp": "npm run compile",
